@@ -1,0 +1,68 @@
+<div class="container">
+  <% if (alert && messagetype == 'alert' ) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= message %>
+    </div>
+  <% } %>
+  <h1 class="display-4 text-center margin-h">Register</h1>
+  <form class="loginform container" action="<%= baseurl %>auth/register" method="post">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Alicia Wonderland"
+        name="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="alicia@example.com"
+        name="email"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input
+        type="number"
+        class="form-control"
+        id="phone"
+        placeholder="+91 7895909661"
+        name="phone"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="********"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="confirmpassword" class="form-label">Confirm Password</label>
+      <input
+        type="confirmpassword"
+        class="form-control"
+        id="confirmpassword"
+        name="confirmpassword"
+        placeholder="********"
+      />
+    </div>
+    <div class="d-grid gap-2">
+      <button
+        type="submit"
+        class="btn btn-success"
+        >Register</button
+      >
+      <a type="submit"  href="<%= baseurl %>auth/login" class="btn btn-primary">Login</a>
+    </div>
+  </form>
+</div>

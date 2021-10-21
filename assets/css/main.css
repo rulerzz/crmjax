@@ -1,0 +1,10 @@
+/* MAIN CSS */
+.margin-h{
+    margin: 50px 0 50px 0;
+}
+nav{
+    background: transparent !important;
+}
+.loginform{
+    max-width: 425px;
+}
