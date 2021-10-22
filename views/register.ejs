@@ -5,7 +5,7 @@
     </div>
   <% } %>
   <h1 class="display-4 text-center margin-h">Register</h1>
-  <form class="loginform container" action="<%= baseurl %>auth/register" method="post">
+  <form class="registerform container" action="<%= baseurl %>auth/register" method="post">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
       <input
@@ -15,16 +15,18 @@
         placeholder="Alicia Wonderland"
         name="name"
       />
+      <span class="error nameerror"></span>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
       <input
-        type="email"
+        type="text"
         class="form-control"
         id="email"
         placeholder="alicia@example.com"
         name="email"
       />
+      <span class="error emailerror"></span>
     </div>
     <div class="mb-3">
       <label for="phone" class="form-label">Phone</label>
@@ -35,6 +37,7 @@
         placeholder="+91 7895909661"
         name="phone"
       />
+      <span class="error phoneerror"></span>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
@@ -45,18 +48,20 @@
         name="password"
         placeholder="********"
       />
+      <span class="error passworderror"></span>
     </div>
     <div class="mb-3">
       <label for="confirmpassword" class="form-label">Confirm Password</label>
       <input
-        type="confirmpassword"
+        type="password"
         class="form-control"
         id="confirmpassword"
         name="confirmpassword"
         placeholder="********"
       />
+      <span class="error confirmpassworderror"></span>
     </div>
-    <div class="d-grid gap-2">
+    <div class="d-grid gap-2 marginregister">
       <button
         type="submit"
         class="btn btn-success"

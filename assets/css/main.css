@@ -5,6 +5,14 @@
 nav{
     background: transparent !important;
 }
-.loginform{
+.loginform, .registerform{
     max-width: 425px;
+}
+.error{
+    color: red;
+    font-size: 12px;
+    position: absolute;
+}
+.marginregister{
+    padding-top: 10px;
 }
