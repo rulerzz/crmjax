@@ -114,6 +114,11 @@ a[type="submit"] {
   display: inline-block;
   height: 20px;
 }
+.dashboard-main button{
+  float: right;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
 @media only screen and (max-width: 600px) {
 }
 

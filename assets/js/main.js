@@ -110,3 +110,22 @@ $(".loginform").on("submit", function (event) {
         event.preventDefault();
     }
 });
+
+// DATATABLE INIT
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "dashboard/data"
+    } );
+} );
+
+// CREATE MEETING CALL AND TASK HANDELLER
+$('.createtask').on('click', function(event){
+    window.location.href = "/dashboard/createtask";
+});
+$('.createmeeting').on('click', function(event){
+    window.location.href = "/dashboard/createmeeting";
+});
+$('.createcall').on('click', function(event){
+    window.location.href = "/dashboard/createcall";
+});

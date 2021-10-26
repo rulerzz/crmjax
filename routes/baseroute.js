@@ -4,7 +4,7 @@ const { baseurl } = require('../utils/constants');
 
 baserouter.get('/', function (req, res) {
   if (req.session.userid)
-    res.render('index', { baseurl: baseurl, mode: "loggedin" });
+    res.redirect('dashboard');
   else
     res.redirect('auth/login');
 });

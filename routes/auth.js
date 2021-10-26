@@ -21,7 +21,7 @@ authrouter.post('/login', function (req, res) {
                     console.log('User [' + req.body.email + '] session started at ' + Date.now());
                     createAccessToken(req, res).then((accesstoken) => {
                         req.session.userid = accesstoken;
-                        res.render('index', { baseurl: baseurl, mode: 'loggedin'});
+                        res.redirect('/');
                     }).catch((err) => {
                         res.render('index', { baseurl: baseurl, alert: true, messagetype: 'alert', message: 'Session Could Not Be Created!', mode: 'login' });
                     });

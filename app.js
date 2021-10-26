@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
 const { port } = require('./utils/constants');
+const { baseurl } = require('./utils/constants');
 
 // IMPORT LOGGER
 const requestLogger = require('./utils/logger');
@@ -16,6 +17,7 @@ const mongooseconnection = require('./utils/mongoose');
 // ROUTE IMPORTS
 const baseroute = require('./routes/baseroute');
 const authroute = require('./routes/auth');
+const dashboardroute = require('./routes/dashboard');
 
 // APPLICATION SETUP
 
@@ -39,6 +41,11 @@ app.set('view engine', 'ejs');
 
 app.use('/', baseroute);
 app.use('/auth', authroute);
+app.use('/dashboard', dashboardroute);
+
+app.get('*', function(req, res){
+    res.render('404', { baseurl : baseurl});
+});
 
 app.listen(port, () => {
     console.log(`CRMJAX server listening at http://localhost:${port}`);
