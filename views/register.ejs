@@ -4,6 +4,11 @@
       <%= message %>
     </div>
   <% } %>
+  <% if (alert && messagetype == 'success' ) { %>
+    <div class="alert alert-success" role="alert">
+      <%= message %>
+    </div>
+  <% } %>
   <h1 class="display-4 text-center margin-h">Register</h1>
   <form class="registerform container" action="<%= baseurl %>auth/register" method="post">
     <div class="mb-3">

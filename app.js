@@ -1,7 +1,17 @@
 const express = require('express')
 const app = express();
 const { port } = require('./utils/constants');
-let mongooseconnection = require('./utils/mongoose');
+
+// IMPORT LOGGER
+const requestLogger = require('./utils/logger');
+
+// IMPORT SESSION MANAGER
+const { sessionparameter } = require('./utils/sessionmanager');
+
+// IMPORT COOKIE PARSER
+const cookieParser = require("cookie-parser");
+
+const mongooseconnection = require('./utils/mongoose');
 
 // ROUTE IMPORTS
 const baseroute = require('./routes/baseroute');
@@ -9,7 +19,15 @@ const authroute = require('./routes/auth');
 
 // APPLICATION SETUP
 
+app.use(cookieParser());
+
+app.use(sessionparameter);
+
+app.use(requestLogger);
+
 app.use(express.static('assets'));
+
+app.use('/modules', express.static(__dirname + '/node_modules/'));
 
 app.use(express.json());
 

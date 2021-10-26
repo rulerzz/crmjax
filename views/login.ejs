@@ -1,11 +1,17 @@
 <div class="container">
-  <% if (alert && messagetype == 'success' ) { %>
-    <div class="alert alert-success" role="alert">
-      <%= message %>
-    </div>
-  <% } %>
   <h1 class="display-4 text-center margin-h">Login</h1>
   <form class="loginform container" action="<%= baseurl %>auth/login" method="post">
+    <div class="mb-3">
+      <% if (alert && messagetype == 'success' ) { %>
+        <div class="alert alert-success" role="alert">
+          <%= message %>
+        </div>
+      <% } if(alert && messagetype == 'alert'){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= message %>
+        </div>
+      <% }%>
+    </div>
     <div class="mb-3">
       <label for="email" class="form-label"
         >Email address</label
@@ -17,6 +23,7 @@
         placeholder="alicia@example.com"
         name="email"
       />
+      <span class="error emailerror"></span>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label"
@@ -29,8 +36,9 @@
         name="password"
         placeholder="********"
       />
+      <span class="error passworderror"></span>
     </div>
-    <div class="d-grid gap-2">
+    <div class="d-grid gap-2 marginlogin">
       <button type="submit" class="btn btn-primary">Login</button>
       <a type="button" href="<%= baseurl %>auth/register" class="btn btn-success">Register</a>
     </div>

@@ -2,14 +2,8 @@ const userModel = require('../models/userModel');
 var ProgramError = require('../errors/ProgramError');
 
 let emailMatch = async function (req, res) {
-    try {
-        let result = await userModel.findOne({ email: req.body.email });
-        return result;
-    }
-    catch (err) {
-        console.log(err);
-        return null;
-    }
+    let result = await userModel.findOne({ email: req.body.email });
+    return result;
 };
 
 let registerUser = async function (req, res) {

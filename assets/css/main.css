@@ -1,18 +1,173 @@
 /* MAIN CSS */
-.margin-h{
-    margin: 50px 0 50px 0;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;1,200;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@1,400;1,600&display=swap");
+/* color pallete https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  font-size: 4.94792vw;
+  line-height: 1.15em;
+  text-transform: uppercase;
+  font-family: "IBM Plex Serif", serif;
+  color: #e9c46a;
 }
-nav{
-    background: transparent !important;
+body {
+  background: #264653;
 }
-.loginform, .registerform{
-    max-width: 425px;
+span,
+a,
+li,
+label,
+button {
+  font-family: "Nunito Sans", sans-serif !important;
+  font-weight: 600;
+  color: #f4a261;
 }
-.error{
-    color: red;
-    font-size: 12px;
+.navbar-brand,
+.nav-link {
+  color: #e9c46a !important;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.margin-h {
+  margin: 50px 0 50px 0;
+}
+nav {
+  background: transparent !important;
+}
+.loginform,
+.registerform {
+  max-width: 425px;
+}
+.error {
+  font-family: "Nunito Sans", sans-serif;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  padding-left: 3px;
+}
+.marginregister,
+.marginlogin {
+  padding-top: 10px;
+}
+::placeholder {
+  /* Most modern browsers support this now. */
+  font-family: "Nunito Sans", sans-serif;
+}
+input{
+  background: turquoise !;
+}
+button,
+input[type="submit"],
+a[type="button"],
+a[type="submit"] {
+  background: transparent !important;
+  outline: none !important;
+}
+.navbar-light .navbar-toggler {
+  border-color: #dde5b6;
+  color: #dde5b6;
+}
+.navbar-light .navbar-toggler-icon {
+  background-image: url("../images/hamburger.svg");
+}
+.navbar-toggler span {
+  transition: 0.3s;
+}
+.navbar-toggler.open span {
+  transform: rotate(90deg) translateX(-35px);
+}
+.navbar-toggler.open span::after {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 30px;
+  background-image: url("../images/hamburger-open.png");
+  position: absolute;
+  left: 35px;
+  background-size: contain;
+  transition: 0.3s;
+}
+.marginfix {
+  margin-left: auto;
+}
+.footer{
+  background: url('../images/wave.svg');
+}
+.companyinfo{
+  color: #e9c46a !important;
+}
+.main-content{
+  position: relative;
+  min-height: 100vh;
+}
+.main-section{
+  margin-bottom: 120px;
+  margin-top: 120px;
+}
+.ico{
+  display: inline-block;
+  height: 20px;
+}
+@media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-link {
+    text-align: center;
+    margin: 5px 0 5px 0;
+    text-transform: uppercase;
+    background: #e9c46a;
+    color: #264653 !important;
+    font-weight: 800 !important;
+    border-radius: 5px;
+    position: relative;
+  }
+  .nav-link .ico{
+    width: 20px;
+    display: inline-block;
     position: absolute;
+    left: 40%;
+    transform: translate(-50%);
+  }
+  .nav-link .text{
+    width: 40px;
+    display: inline-block;
+  }
+  .nav-link .ico i{
+    text-align: left;
+  }
+  footer  .nav-link{
+    margin-right: 10px !important;
+  }
 }
-.marginregister{
-    padding-top: 10px;
+
+@media only screen and (min-width: 992px) {
+  .nav-link .ico{
+    width: 20px;
+    display: inline-block;
+  }
+  .nav-link .text{
+    min-width: 50px;
+    display: inline-block;
+  }
+  .nav-link{
+    border: 1px solid #e9c46a;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
 }

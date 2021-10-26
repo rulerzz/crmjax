@@ -1,7 +1,13 @@
-<%- include('./partials/header', {baseurl: baseurl}); -%>
-<% if (mode == 'login') { %>
+<%- include('partials/header', {baseurl: baseurl}); -%>
+<section class="main-section">
+<% if(mode == 'login'){ %>
     <%- include('login'); -%>
-<% } else if(mode == 'register'){ %>
+<% } %>
+<% if(mode == 'register'){ %>
     <%- include('register'); -%>
 <% } %>
-<%- include('./partials/footer'); -%>
+<% if(mode == 'loggedin'){ %>
+    <%- include('dashboard'); -%>
+<% }%>
+</section>
+<%- include('partials/footer', {baseurl: baseurl}); -%>

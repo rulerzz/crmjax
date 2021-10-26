@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CRMJAX</a>
+    <a class="navbar-brand" href="<%= baseurl %>">CRMJAX</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,23 +13,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-      <form class="d-flex">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav marginfix mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="<%= baseurl %>"> <div class="ico"><i class="lni lni-pin"></i></div> <div class="text">Home</div></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="<%= baseurl %>link"><div class="ico"><i class="lni lni-popup"></i></div> <div class="text">Link</div></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="<%= baseurl %>contact"><div class="ico"><i class="lni lni-phone"></i></div> <div class="text">Contact</div></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
+            <a class="nav-link" href="<%= baseurl %>help"><div class="ico"><i class="lni lni-support"></i></div> <div class="text">Help</div></a>
           </li>
+          <% if(mode == 'loggedin'){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= baseurl %>logout"><div class="ico"><i class="lni lni-arrow-right-circle"></i></div> <div class="text">Logout</div></a>
+            </li>
+          <% } %>
         </ul>
-      </form>
     </div>
   </div>
 </nav>
