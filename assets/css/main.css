@@ -119,6 +119,20 @@ a[type="submit"] {
   margin-bottom: 20px;
   margin-left: 20px;
 }
+.callform{
+  max-width: 525px;
+
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+@media only screen and (max-width: 425px) {
+  .timebox input{
+    margin-bottom: 20px;
+  }
+}
 @media only screen and (max-width: 600px) {
 }
 

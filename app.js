@@ -9,9 +9,6 @@ const requestLogger = require('./utils/logger');
 // IMPORT SESSION MANAGER
 const { sessionparameter } = require('./utils/sessionmanager');
 
-// IMPORT COOKIE PARSER
-const cookieParser = require("cookie-parser");
-
 const mongooseconnection = require('./utils/mongoose');
 
 // ROUTE IMPORTS
@@ -21,8 +18,6 @@ const dashboardroute = require('./routes/dashboard');
 
 // APPLICATION SETUP
 
-app.use(cookieParser());
-
 app.use(sessionparameter);
 
 app.use(requestLogger);
@@ -31,8 +26,10 @@ app.use(express.static('assets'));
 
 app.use('/modules', express.static(__dirname + '/node_modules/'));
 
+// EXPRESS WILL PROCESS JSON DATA IN REQUEST ON ITS OWN
 app.use(express.json());
 
+// EXPRESS WILL PARSE BODY DATA
 app.use(express.urlencoded());
 
 app.set('view engine', 'ejs');

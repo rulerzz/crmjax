@@ -1,14 +1,18 @@
 let express = require('express');
 let authrouter = express.Router();
 let { emailMatch, registerUser } = require('../services/user');
-let { createAccessToken } = require('../services/session');
+let { createAccessToken, getAccessToken } = require('../services/session');
 const { baseurl } = require('../utils/constants');
 
 authrouter.get('/login', function (req, res) {
     if (req.session.userid)
-    res.redirect('/');
+        getAccessToken(req, res).then((data) => {
+            res.redirect('/');
+        }).catch(err => {
+            res.render('index', { baseurl: baseurl, mode: 'login', alert: false });
+        });
     else
-    res.render('index', { baseurl: baseurl, mode: 'login', alert: false });
+        res.render('index', { baseurl: baseurl, mode: 'login', alert: false });
 });
 
 authrouter.post('/login', function (req, res) {
@@ -18,7 +22,7 @@ authrouter.post('/login', function (req, res) {
             data.comparePassword(req.body.password, function (err, isMatch) {
                 if (err) throw err;
                 if (isMatch) {
-                    console.log('User [' + req.body.email + '] session started at ' + Date.now());
+                    console.log('[ Session Log : session started for ' + req.body.email + '] @ ' + new Date());
                     createAccessToken(req, res).then((accesstoken) => {
                         req.session.userid = accesstoken;
                         res.redirect('/');
@@ -41,9 +45,13 @@ authrouter.post('/login', function (req, res) {
 
 authrouter.get('/register', function (req, res) {
     if (req.session.userid)
-    res.redirect('/');
+        getAccessToken(req, res).then((data) => {
+            res.redirect('/');
+        }).catch(err => {
+            res.render('index', { baseurl: baseurl, mode: 'register', alert: false });
+        });
     else
-    res.render('index', { baseurl: baseurl, mode: 'register', alert: false });
+        res.render('index', { baseurl: baseurl, mode: 'register', alert: false });
 });
 
 authrouter.post('/register', function (req, res) {

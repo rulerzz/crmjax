@@ -1,19 +1,15 @@
 var express = require('express');
 var baserouter = express.Router();
 const { baseurl } = require('../utils/constants');
+let { authenticateToken } = require('../services/session');
 
-baserouter.get('/', function (req, res) {
-  if (req.session.userid)
-    res.redirect('dashboard');
-  else
-    res.redirect('auth/login');
+baserouter.get('/', authenticateToken, function (req, res) {
+  res.redirect('dashboard');
 });
 
-baserouter.get('/logout', function (req, res) {
-  if (req.session.userid) {
-    req.session.destroy();
-    res.redirect('/');
-  }
+baserouter.get('/logout', authenticateToken, function (req, res) {
+  req.session.destroy();
+  res.redirect(baseurl + 'auth/login');
 });
 
 module.exports = baserouter;

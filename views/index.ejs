@@ -9,5 +9,8 @@
 <% if(mode == 'loggedin'){ %>
     <%- include('dashboard'); -%>
 <% }%>
+<% if(mode == 'createcall'){ %>
+    <%- include('call'); -%>
+<% }%>
 </section>
 <%- include('partials/footer', {baseurl: baseurl}); -%>

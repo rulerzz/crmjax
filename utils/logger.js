@@ -1,5 +1,5 @@
 var requestLogger = function (req, res, next) {
-    console.log("Client Requested asset : [" + req.url + "]");
+    console.log("[ Request Log : " + req.url + " ]");
     next();
 };
 

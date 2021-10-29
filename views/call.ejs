@@ -1,0 +1,196 @@
+<div class="container">
+    <h1 class="display-4 text-center margin-h">Create Call Record</h1>
+  <form
+    class="callform container"
+    action="<%= baseurl %>call/create"
+    method="post"
+  >
+    <div class="mb-3">
+      <label for="contactname" class="form-label">Contact Name</label>
+      <select class="form-select" name="contact_name">
+        <option value="contact" selected>Contact</option>
+        <option value="lead">Lead</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="subject" class="form-label">Subject</label>
+      <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of the call"/>
+    </div>
+    <div class="mb-3">
+      <label for="purpose" class="form-label">Call Purpose</label>
+      <select class="form-select" name="purpose">
+        <option value="none">None</option>
+        <option value="prospecting">Prospecting</option>
+        <option value="administrative">Administrative</option>
+        <option value="negotiation">Negotiation</option>
+        <option value="demo">Demo</option>
+        <option value="project">Project</option>
+        <option value="desk">Desk</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="relatedto" class="form-label">Related To</label>
+      <select class="form-select" name="related_to">
+        <option value="account" selected>Account</option>
+        <option value="deal">Deal</option>
+        <option value="campaign">Campaign</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="calltype" class="form-label">Call Type</label>
+      <select class="form-select" name="call_type">
+        <option value="outbound" selected>Outbound</option>
+        <option value="inbound">Inbound</option>
+        <option value="missed">Missed</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="calldetails" class="form-label">Call Details</label>
+      <div class="row p-0">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="call_detail"
+            id="calldetail1"
+            checked
+            value="CURRENT_CALL"
+          />
+          <label class="form-check-label" for="calldetail1">
+            Current Call
+          </label>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="call_detail"
+            id="calldetail2"
+            value="COMPLETED_CALL"
+          />
+          <label class="form-check-label" for="calldetail2">
+            Completed Call
+          </label>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="call_detail"
+            id="calldetail3"
+            value="SCHEDULED_CALL"
+          />
+          <label class="form-check-label" for="calldetail3">
+            Schedule a call
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 timebox">
+      <div class="row p-0">
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <label for="callstartime" class="form-label">Call Start Time</label>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <input type="date" class="form-control" name="call_start_date" value="1990-01-01"/>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+          <select class="form-select" name="call_start_time">
+            <option value="0000">12 : 00 AM</option>
+            <option value="0030">12 : 30 AM</option>
+            <option value="0100">01 : 00 AM</option>
+            <option value="0130">01 : 30 AM</option>
+            <option value="0200">02 : 00 AM</option>
+            <option value="0230">02 : 30 AM</option>
+            <option value="0300">03 : 00 AM</option>
+            <option value="0330">03 : 30 AM</option>
+            <option value="0400">04 : 00 AM</option>
+            <option value="0430">04 : 30 AM</option>
+            <option value="0500">05 : 00 AM</option>
+            <option value="0530">05 : 30 AM</option>
+            <option value="0600">06 : 00 AM</option>
+            <option value="0630">06 : 30 AM</option>
+            <option value="0700">07 : 00 AM</option>
+            <option value="0730">07 : 30 AM</option>
+            <option value="0800">08 : 00 AM</option>
+            <option value="0830">08 : 30 AM</option>
+            <option value="0900">09 : 00 AM</option>
+            <option value="0930">09 : 30 AM</option>
+            <option value="1000">10 : 00 AM</option>
+            <option value="1030">10 : 30 AM</option>
+            <option value="1100">11 : 00 AM</option>
+            <option value="1130">11 : 30 AM</option>
+            <option value="1200">12 : 00 AM</option>
+            <option value="1230">12 : 30 PM</option>
+            <option value="1300">01 : 00 PM</option>
+            <option value="1330">01 : 30 PM</option>
+            <option value="1400">02 : 00 PM</option>
+            <option value="1430">02 : 30 PM</option>
+            <option value="1500">03 : 00 PM</option>
+            <option value="1530">03 : 30 PM</option>
+            <option value="1600">04 : 00 PM</option>
+            <option value="1630">04 : 30 PM</option>
+            <option value="1700">05 : 00 PM</option>
+            <option value="1730">05 : 30 PM</option>
+            <option value="1800">06 : 00 PM</option>
+            <option value="1830">06 : 30 PM</option>
+            <option value="1900">07 : 00 PM</option>
+            <option value="1930">07 : 30 PM</option>
+            <option value="2000">08 : 00 PM</option>
+            <option value="2030">08 : 30 PM</option>
+            <option value="2100">09 : 00 PM</option>
+            <option value="2130">09 : 30 PM</option>
+            <option value="2200">10 : 00 PM</option>
+            <option value="2230">10 : 30 PM</option>
+            <option value="2300">11 : 00 PM</option>
+            <option value="2330">11 : 30 PM</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 callduration">
+      <div class="row p-0">
+        <div class="col-md-4">
+          <label for="callduration" class="form-label">Call Duration</label>
+        </div>
+        <div class="col-md-4">
+          <input
+            type="text"
+            class="form-control"
+            name="call_duration_from"
+            value="00"
+          />
+          <span>minutes</span>
+        </div>
+        <div class="col-md-4">
+          <input
+            type="text"
+            class="form-control"
+            name="call_duration_to"
+            value="00"
+          />
+          <span>seconds</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" name="description" placeholder="What was the call about?"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="callresult" class="form-label">Call Result</label>
+      <select class="form-select" name="callresult">
+        <option value="none" selected>None</option>
+        <option value="interested">Interested</option>
+        <option value="not_interested">Not Interested</option>
+        <option value="no_response_or_busy">No Response / Busy</option>
+        <option value="requested_more_info">Requested More Info</option>
+        <option value="requested_call_back">Requested Call Back</option>
+        <option value="invalid_number">Invalid Number</option>
+      </select>
+    </div>
+    <div class="d-grid gap-2 marginlogin">
+        <button type="submit" class="btn btn-primary">Create Activity</button>
+      </div>
+  </form>
+</div>
