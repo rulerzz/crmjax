@@ -15,11 +15,6 @@ const routes = require('./routes');
 // IMPORT SESSION MANAGER
 const sessionparameter = require('./utils/sessionmanager');
 
-// ROUTE IMPORTS
-const baseroute = require('./routes/baseroute');
-const authroute = require('./routes/auth');
-const dashboardroute = require('./routes/dashboard');
-
 // APPLICATION SETUP
 
 if (config.env !== 'test') {
