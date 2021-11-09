@@ -2,7 +2,7 @@
     <h1 class="display-4 text-center margin-h">Create Call Record</h1>
   <form
     class="callform container"
-    action="<%= baseurl %>call/create"
+    action="<%= baseurl %>call/createcall"
     method="post"
   >
     <div class="mb-3">
@@ -16,6 +16,7 @@
       <label for="subject" class="form-label">Subject</label>
       <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of the call"/>
     </div>
+    <input type="hidden" name="type" value="CALL">
     <div class="mb-3">
       <label for="purpose" class="form-label">Call Purpose</label>
       <select class="form-select" name="purpose">

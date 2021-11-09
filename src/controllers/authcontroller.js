@@ -4,7 +4,7 @@ const baseurl = require('../config/config').baseurl;
 const catchAsync = require('../utils/catchAsync');
 
 const serveloginpage = catchAsync(async function (req, res) {
-    if (req.session.userid)
+    if (req.session.accesstoken)
         sessionservice.getAccessToken(req, res).then((data) => {
             res.redirect('/');
         }).catch(err => {
@@ -23,7 +23,8 @@ const loginhandeller = catchAsync(async function (req, res) {
                 if (isMatch) {
                     console.log('[ Session Log : session started for ' + req.body.email + '] @ ' + new Date());
                     sessionservice.createAccessToken(req, res).then((accesstoken) => {
-                        req.session.userid = accesstoken;
+                        req.session.accesstoken = accesstoken;
+                        req.session.useremail = req.body.email;
                         res.redirect('/');
                     }).catch((err) => {
                         res.render('index', { baseurl: baseurl, alert: true, messagetype: 'alert', message: 'Session Could Not Be Created!', mode: 'login', formdata: req.body });
@@ -43,7 +44,7 @@ const loginhandeller = catchAsync(async function (req, res) {
 });
 
 const serveregisterpage = catchAsync(async function (req, res) {
-    if (req.session.userid)
+    if (req.session.accesstoken)
         sessionservice.getAccessToken(req, res).then((data) => {
             res.redirect('/');
         }).catch(err => {

@@ -5,6 +5,11 @@ let emailMatch = async function (req, res) {
     return result;
 };
 
+let searchUserByEmail = async function (email) {
+    let result = await userModel.findOne({ email: email });
+    return result;
+};
+
 let registerUser = async function (req, res) {
     let user = await userModel.create({
         name: req.body.name,
@@ -17,4 +22,4 @@ let registerUser = async function (req, res) {
     return user;
 };
 
-module.exports = { emailMatch, registerUser };
+module.exports = { emailMatch, registerUser, searchUserByEmail };

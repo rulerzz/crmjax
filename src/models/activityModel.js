@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 
 const activitySchema = new Schema({
     id: ObjectId,
-    Subject: {
+    subject: {
         type: String,
         required: true
     },
@@ -15,7 +15,7 @@ const activitySchema = new Schema({
     taskid: { type: ObjectId },
     meetingid: { type: ObjectId },
     callid: { type: ObjectId },
-    from: { type: Date, required: true },
+    from: { type: Date },
     dueDate: { type: Date },
     priority: {
         type: String, enum: ['LOW', 'MEDIUM', 'HIGH', 'URGENT']

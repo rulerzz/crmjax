@@ -3,17 +3,17 @@ const jwt = require('jsonwebtoken');
 const baseurl = require('../config/config').baseurl;
 
 const createAccessToken = async function (req, res) {
-    let accessToken = await jwt.sign({ username: req.body.email }, accessTokenSecret);
+    let accessToken = await jwt.sign(req.body.email , accessTokenSecret);
     return accessToken;
 };
 
 const getAccessToken = async function (req, res) {
-    let decodedData = await jwt.verify(req.session.userid, accessTokenSecret);
+    let decodedData = await jwt.verify(req.session.accesstoken, accessTokenSecret);
     return decodedData;
 };
 
 const authenticateToken = async (req, res, next) => {
-  const token = req.session.userid;
+  const token = req.session.accesstoken;
   if (!token) {
     res.redirect(baseurl + 'auth/login');
   } else {
