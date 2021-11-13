@@ -1,10 +1,16 @@
 <div class="container">
-    <h1 class="display-4 text-center margin-h">Create Call Record</h1>
+    <h1 class="display-4 text-center formtop margin-h">Create Call Record</h1>
   <form
     class="callform container"
     action="<%= baseurl %>call/createcall"
     method="post"
   >
+  <div class="mb-3">
+      <div class="alert alert-success hidden" role="alert">
+      </div>
+      <div class="alert alert-danger hidden" role="alert">
+      </div>
+  </div>
     <div class="mb-3">
       <label for="contactname" class="form-label">Contact Name</label>
       <select class="form-select" name="contact_name">
@@ -87,16 +93,16 @@
         </div>
       </div>
     </div>
-    <div class="mb-3 timebox">
+    <div class="mb-3 timebox hidden">
       <div class="row p-0">
         <div class="col-md-4 col-sm-12 col-xs-12">
           <label for="callstartime" class="form-label">Call Start Time</label>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12">
-          <input type="date" class="form-control" name="call_start_date" value="1990-01-01"/>
+          <input type="date" class="form-control" name="call_start_date" value="1990-01-01" disabled/>
         </div>
         <div class="col-md-4 col-sm-12 col-xs-12">
-          <select class="form-select" name="call_start_time">
+          <select class="form-select" name="call_start_time" disabled>
             <option value="0000">12 : 00 AM</option>
             <option value="0030">12 : 30 AM</option>
             <option value="0100">01 : 00 AM</option>
@@ -149,7 +155,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-3 callduration">
+    <div class="mb-3 callduration hidden">
       <div class="row p-0">
         <div class="col-md-4">
           <label for="callduration" class="form-label">Call Duration</label>
@@ -160,6 +166,7 @@
             class="form-control"
             name="call_duration_from"
             value="00"
+            disabled
           />
           <span>minutes</span>
         </div>
@@ -169,6 +176,7 @@
             class="form-control"
             name="call_duration_to"
             value="00"
+            disabled
           />
           <span>seconds</span>
         </div>

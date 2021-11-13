@@ -128,6 +128,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
+.hidden{
+  display: none;
+}
 @media only screen and (max-width: 425px) {
   .timebox input{
     margin-bottom: 20px;
